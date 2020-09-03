@@ -1,25 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  MainPage,
+  UseRefComponent,
+  UseStateComponent,
+  UseEffectComponent,
+  UseLayoutEffectComponent,
+  UseMemoComponent,
+  UseCallbackComponent,
+  CustomHookComponent,
+  UserReducerComponent,
+  UseContextComponent,
+} from './pages';
+import NavBar from './pages/components/NavBar';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar />
+      <div>
+        <Switch>
+          <Route exact path="/exercise1" component={UseStateComponent} />
+          <Route exact path="/exercise2" component={UseRefComponent} />
+          <Route exact path="/exercise3" component={UseEffectComponent} />
+          <Route exact path="/exercise4" component={UseLayoutEffectComponent} />
+          <Route exact path="/exercise5" component={UseMemoComponent} />
+          <Route exact path="/exercise6" component={UseCallbackComponent} />
+          <Route exact path="/exercise7" component={CustomHookComponent} />
+          <Route exact path="/exercise8" component={UserReducerComponent} />
+          <Route exact path="/exercise9" component={UseContextComponent} />
+          <Route exact path="/" component={MainPage} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
